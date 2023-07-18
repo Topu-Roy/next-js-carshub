@@ -21,7 +21,7 @@ function Hero() {
 
         <CustomButton
           title="Explore Cars"
-          containerStyles="bg-blue-700 text-white rounded-full mt-10"
+          containerStyles="bg-blue-700 text-white mt-10 outline-none py-3 px-6 hover:bg-blue-800 "
           handleClick={handleScroll}
         />
       </div>
@@ -30,8 +30,8 @@ function Hero() {
       <div className="xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen">
         <div className="relative xl:w-full w-[90%] xl:h-full h-[590px] z-0">
           <Image src={"/hero.png"} alt="Hero" fill className="object-contain" />
-          <div className="absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-[url('/hero-bg.png')] bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden" />
         </div>
+        <div className="absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-[url('/hero-bg.png')] bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden" />
       </div>
     </section>
   );

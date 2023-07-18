@@ -11,7 +11,7 @@ function CustomButton({
     <button
       disabled={false}
       type="button"
-      className={`${containerStyles} flex flex-row relative justify-center items-center py-3 px-6 outline-none`}
+      className={`${containerStyles} flex flex-row rounded-full justify-center items-center`}
       onClick={() => {
         () => handleClick;
       }}
