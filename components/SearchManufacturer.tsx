@@ -23,7 +23,7 @@ function SearchManufacturer({
 
   return (
     <div className="flex-1 max-sm:w-full flex justify-start items-center">
-      <Combobox>
+      <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
           <Combobox.Button className={"absolute top-[14px]"}>
             <Image
@@ -42,15 +42,14 @@ function SearchManufacturer({
             onChange={(e) => setQuery(e.target.value)}
           />
 
-          <Transition
+          {/* Not Working */}
+          {/* <Transition
             as={Fragment}
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
-            afterLeave={() => {
-              setQuery("");
-            }}
-          />
+            afterLeave={() => setQuery("")}
+          /> */}
 
           <Combobox.Options>
             {filteredManufacturer.map((item) => (
@@ -63,7 +62,24 @@ function SearchManufacturer({
                     `
                 }
               >
-                {item}
+                {({ selected, active }) => (
+                  <>
+                    <span
+                      className={`block truncate ${
+                        selected ? "font-medium" : "font-normal"
+                      }`}
+                    >
+                      {item}
+                      {selected ? (
+                        <span
+                          className={`absolute inset-y-0 flex items-center pl-3 ${
+                            active ? "text-white" : "text-teal-600"
+                          }`}
+                        ></span>
+                      ) : null}
+                    </span>
+                  </>
+                )}
               </Combobox.Option>
             ))}
           </Combobox.Options>
