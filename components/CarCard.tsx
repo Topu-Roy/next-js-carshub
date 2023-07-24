@@ -3,7 +3,7 @@
 import { CarProps } from "@/types";
 import { calculateCarRent } from "@/utils";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CustomButton from "./CustomButton";
 import CarDetailsModal from "./CarDetailsModal";
 
@@ -31,9 +31,6 @@ function CarCard({ car }: CarPropTypes) {
   // model state
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    console.log(isOpen);
-  }, [isOpen]);
 
   return (
     <div className="group my-2 flex flex-col p-6 justify-center items-start text-black-100 bg-blue-100/70 hover:bg-slate-400/50 hover:shadow-md rounded-3xl">

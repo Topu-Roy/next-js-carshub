@@ -11,9 +11,6 @@ function CustomButton({
   rightIcon,
   textStyle,
 }: CustomButtonInterface) {
-  useEffect(() => {
-    console.log("button clicked");
-  }, [handleClick]);
   return (
     <button
       disabled={false}
