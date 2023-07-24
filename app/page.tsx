@@ -1,8 +1,14 @@
 import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
 import { fetchCars } from "@/utils";
 
-export default async function Home() {
-  const allCars = await fetchCars();
+export default async function Home({ searchParams }) {
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || "",
+    year: searchParams.year || "",
+    fuel: searchParams.fuel || "",
+    limit: searchParams.limit || "",
+    model: searchParams.model || "",
+  });
 
   const isDataEmpty =
     !Array.isArray(allCars) ||
@@ -33,10 +39,11 @@ export default async function Home() {
 
         {!isDataEmpty ? (
           <section>
-            <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14"></div>
-            {allCars?.map((car) => (
-              <CarCard car={car} />
-            ))}
+            <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
+              {allCars?.map((car) => (
+                <CarCard car={car} />
+              ))}
+            </div>
           </section>
         ) : (
           <p>we don't have cars</p>

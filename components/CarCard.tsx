@@ -31,9 +31,8 @@ function CarCard({ car }: CarPropTypes) {
   // model state
   const [isOpen, setIsOpen] = useState(false);
 
-
   return (
-    <div className="group my-2 flex flex-col p-6 justify-center items-start text-black-100 bg-blue-100/70 hover:bg-slate-400/50 hover:shadow-md rounded-3xl">
+    <div className="group w-full my-2 flex flex-col p-6 justify-center items-start text-black-100 bg-blue-100/70 hover:bg-slate-400/50 hover:shadow-md rounded-3xl">
       <div className="w-full flex justify-between items-start gap-2">
         <h2 className="text-[22px] leading-[26px] font-bold capitalize">
           {make} {model}
