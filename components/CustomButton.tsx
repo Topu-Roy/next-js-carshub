@@ -2,6 +2,7 @@
 
 import { CustomButtonInterface } from "@/types";
 import Image from "next/image";
+import { useEffect } from "react";
 
 function CustomButton({
   title,
@@ -10,14 +11,15 @@ function CustomButton({
   rightIcon,
   textStyle,
 }: CustomButtonInterface) {
+  useEffect(() => {
+    console.log("button clicked");
+  }, [handleClick]);
   return (
     <button
       disabled={false}
       type="button"
       className={`${containerStyles} flex flex-row rounded-full justify-center items-center`}
-      onClick={() => {
-        () => handleClick;
-      }}
+      onClick={handleClick}
     >
       <span className={`flex-1 ${textStyle}`}>{title}</span>
 
